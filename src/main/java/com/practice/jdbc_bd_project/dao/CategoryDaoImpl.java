@@ -34,9 +34,9 @@ public class CategoryDaoImpl implements CategoryDao {
                 .withTableName("categories")
                 .usingGeneratedKeyColumns("id");
         Map<String, Object> map = new HashMap<>();
-        map.put("name", category.getCategoryName());
+        map.put("name", category.getName());
         int categoryId = insert.executeAndReturnKey(map).intValue();
-        return new Category(categoryId, category.getCategoryName());
+        return new Category(categoryId, category.getName());
     }
 
     private Category mapRaw(ResultSet rs, int rowNum) throws SQLException {

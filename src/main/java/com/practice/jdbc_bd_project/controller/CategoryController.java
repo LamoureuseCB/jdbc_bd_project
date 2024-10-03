@@ -4,10 +4,7 @@ import com.practice.jdbc_bd_project.dao.CategoryDao;
 import com.practice.jdbc_bd_project.exception.NotFoundException;
 import com.practice.jdbc_bd_project.model.Category;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,9 @@ public class CategoryController {
     @GetMapping
     public List<Category> findAll() {
         return categoryDao.findAll();
+    }
+    @PostMapping()
+    public Category create(@RequestBody Category category){
+        return categoryDao.create(category);
     }
 }

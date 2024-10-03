@@ -4,10 +4,7 @@ import com.practice.jdbc_bd_project.dao.ProductDao;
 import com.practice.jdbc_bd_project.exception.NotFoundException;
 import com.practice.jdbc_bd_project.model.Product;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,9 @@ public class ProductController {
     @GetMapping
     public List<Product> findAll() {
         return productDao.findAll();
+    }
+    @PostMapping
+    public Product create(@RequestBody Product product){
+        return productDao.create(product);
     }
 }
